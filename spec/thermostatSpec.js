@@ -43,4 +43,12 @@ describe('thermostat', function(){
     thermostat.up()
     expect(thermostat.temperature).toEqual(32)
   });
+  it('has a reset function which sets the temperature to 20', () => {
+    thermostat.powerSavingModeOff()
+    for(let i=1; i<=12;i++) {
+      thermostat.up()
+    };
+    thermostat.reset()
+    expect(thermostat.temperature).toEqual(20)
+  });
 });

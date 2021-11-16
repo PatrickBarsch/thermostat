@@ -10,4 +10,5 @@ class Thermostat {
   powerSavingModeOff() { this._maxTemperature = 32; }
   up() { if(this.temperature < this._maxTemperature) { this.temperature++ } }
   down() { if(this.temperature > this._minTemperature) { this.temperature-- }; }
+  reset() { this.temperature = 20 }
 }
