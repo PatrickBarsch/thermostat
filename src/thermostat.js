@@ -3,7 +3,11 @@
 class Thermostat {
   constructor() { 
     this.temperature = 20 
+    this._maxTemperature = 25;
+    this._minTemperature = 10;
   }
-  up() { if(this.temperature < 25) {this.temperature++} }
-  down() { if(this.temperature > 10) { this.temperature-- }; }
+  powerSavingModeOn() { this._maxTemperature = 25; }
+  powerSavingModeOff() { this._maxTemperature = 32; }
+  up() { if(this.temperature < this._maxTemperature) { this.temperature++ } }
+  down() { if(this.temperature > this._minTemperature) { this.temperature-- }; }
 }

@@ -34,4 +34,13 @@ describe('thermostat', function(){
     thermostat.up()
     expect(thermostat.temperature).toEqual(25)
   });
+  it('has a maximum temperature of 32, when powerSavingMode is off', () => {
+    thermostat.powerSavingModeOff()
+    for(let i=1; i<=12;i++) {
+      thermostat.up()
+    };
+    expect(thermostat.temperature).toEqual(32)
+    thermostat.up()
+    expect(thermostat.temperature).toEqual(32)
+  });
 });
