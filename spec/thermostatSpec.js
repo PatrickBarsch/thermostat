@@ -51,4 +51,16 @@ describe('thermostat', function(){
     thermostat.reset()
     expect(thermostat.temperature).toEqual(20)
   });
+  it('returns energy usage, based on temperture', () => {
+    expect(thermostat.usage()).toEqual('medium-usage')
+    for(let i=1; i<=3;i++) {
+      thermostat.down()
+    };
+    expect(thermostat.usage()).toEqual('low-usage')
+    thermostat.reset()
+    for(let i=1; i<=6;i++) {
+      thermostat.up()
+    };    
+    expect(thermostat.usage()).toEqual('high-usage')
+  });
 });
