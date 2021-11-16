@@ -23,7 +23,15 @@ describe('thermostat', function(){
       thermostat.down()
     }
     expect(thermostat.temperature).toEqual(10)
-    thermostat.down()
+    thermostat.down();
     expect(thermostat.temperature).toEqual(10)
+  });
+  it('has a maximum temperature of 25, when powerSavingMode is on', () => {
+    for(let i=1; i<=5;i++) {
+      thermostat.up()
+    };
+    expect(thermostat.temperature).toEqual(25)
+    thermostat.up()
+    expect(thermostat.temperature).toEqual(25)
   });
 });
